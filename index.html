@@ -3,209 +3,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miss UNSM 2026 - Votación Oficial</title>
+    <title>EESPP Monseñor Elías Olázar | Yurimaguas</title>
     
-    <!-- Metadatos para WhatsApp y Redes Sociales -->
-    <meta property="og:title" content="👑 Votación Oficial: Miss UNSM 2026" />
-    <meta property="og:description" content="Apoya a tu candidata favorita de las diferentes facultades. ¡Tu voto decide!" />
-    <meta property="og:image" content="https://www.unsm.edu.pe/wp-content/uploads/2020/logo-fisi.png" />
-    <meta property="og:type" content="website" />
+    <!-- Tailwind CSS (CDN para un solo archivo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración de colores personalizados basados en los logos -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#003865', /* Azul institucional */
+                        secondary: '#E3000F', /* Rojo institucional y Minedu */
+                        dark: '#333333',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- Estilos Profesionales (Google Fonts & CSS) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        :root {
-            --primary-color: #2c3e50; /* Azul oscuro institucional */
-            --accent-color: #d4af37; /* Dorado elegante */
-            --bg-color: #f8f9fa;
+        /* Estilos adicionales personalizados */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 56, 101, 0.8), rgba(0, 56, 101, 0.9)), 
+                        url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
         }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        header img {
-            width: 100px;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin: 0;
-            color: var(--accent-color);
-        }
-
-        header p {
-            font-size: 1.1rem;
-            margin-top: 5px;
-            opacity: 0.9;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        .candidates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .candidate-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-            border-top: 4px solid var(--accent-color);
-        }
-
-        .candidate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Usamos placeholders elegantes para las fotos de perfil */
-        .candidate-photo {
-            width: 100%;
-            height: 300px;
-            background-color: #e0e0e0;
-            background-image: url('https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60'); /* Imagen de ejemplo */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Puedes cambiar las imágenes en el div respectivo */
-        .photo-2 { background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60'); }
-        .photo-3 { background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60'); }
-
-        .candidate-info {
-            padding: 20px;
-        }
-
-        .candidate-info h3 {
-            margin: 0;
-            font-size: 1.4rem;
-            color: var(--primary-color);
-        }
-
-        .candidate-info p {
-            color: #777;
-            font-size: 0.95rem;
-            margin: 8px 0 20px 0;
-        }
-
-        .btn-vote {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-vote:hover {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: var(--primary-color);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-            background: var(--primary-color);
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-        }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
 
-    <header>
-        <!-- Logo institucional de la UNSM / FISI -->
-        <img src="https://www.unsm.edu.pe/wp-content/uploads/2020/logo-fisi.png" alt="Logo UNSM">
-        <h1>Miss UNSM 2026</h1>
-        <p>Certamen de Belleza y Talento Universitario</p>
+    <!-- Navbar / Encabezado -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logotipo / Nombre Institucional -->
+                <div class="flex items-center gap-4">
+                    <div class="flex-shrink-0 flex items-center">
+                        <!-- Representación del Logo -->
+                        <div class="text-secondary text-3xl mr-2">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-secondary font-bold text-xl leading-tight tracking-tight">EESPP</span>
+                            <span class="text-primary font-bold text-sm leading-tight">MONSEÑOR ELÍAS OLÁZAR</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:block border-l-2 border-gray-300 h-10 mx-2"></div>
+                    <div class="hidden md:flex flex-col text-xs text-gray-600 font-semibold">
+                        <span>MINISTERIO DE</span>
+                        <span>EDUCACIÓN</span>
+                    </div>
+                </div>
+
+                <!-- Botón Iniciar Sesión (Escritorio) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#programas" class="text-gray-600 hover:text-primary transition font-medium">Programas</a>
+                    <a href="#nosotros" class="text-gray-600 hover:text-primary transition font-medium">Nosotros</a>
+                    <!-- ENLACE PARA INICIAR SESIÓN (Reemplaza el href con tu link final) -->
+                    <a href="#" id="btnLogin" class="bg-primary hover:bg-blue-800 text-white px-6 py-2 rounded-md font-semibold transition shadow-lg flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i> Iniciar sesión
+                    </a>
+                </div>
+
+                <!-- Menú Móvil Botón -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#programas" class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Programas</a>
+                <a href="#nosotros" class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Nosotros</a>
+                <a href="#" class="block px-3 py-2 text-primary font-bold hover:bg-gray-50 rounded-md"><i class="fa-solid fa-user mr-2"></i>Iniciar sesión</a>
+            </div>
+        </div>
     </header>
 
-    <div class="container">
-        <div class="intro">
-            <p>La votación está abierta. Elige a tu candidata favorita y apoya a tu facultad. <br><strong>Requiere validación institucional para evitar votos duplicados.</strong></p>
+    <!-- Sección Hero -->
+    <section class="hero-bg text-white flex-grow flex items-center py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3">
+                <span class="inline-block py-1 px-3 rounded-full bg-secondary text-white text-sm font-semibold mb-4 tracking-wider">
+                    INSTITUCIÓN LICENCIADA POR MINEDU
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                    Formando a los futuros <br class="hidden md:block">
+                    <span class="text-yellow-400">docentes del Perú</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
+                    Brindamos educación superior pedagógica pública de calidad en Yurimaguas. Únete a nuestra comunidad y transforma la sociedad a través de la educación.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#programas" class="bg-yellow-400 hover:bg-yellow-500 text-primary font-bold px-8 py-3 rounded-md transition shadow-lg text-center">
+                        Ver Programas de Estudio
+                    </a>
+                    <a href="#contacto" class="bg-transparent border-2 border-white hover:bg-white hover:text-primary text-white font-bold px-8 py-3 rounded-md transition text-center">
+                        Contáctanos
+                    </a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="candidates-grid">
+    <!-- Datos Relevantes (Cards Info) -->
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Dato 1 -->
+                <div class="bg-white rounded-xl shadow-xl p-8 border-t-4 border-primary transform transition hover:-translate-y-2">
+                    <div class="text-primary text-4xl mb-4"><i class="fa-solid fa-certificate"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Licenciamiento Institucional</h3>
+                    <p class="text-gray-600">Reconocidos oficialmente por el MINEDU (RM N°606-2023-MINEDU), garantizando las condiciones básicas de calidad para tu formación.</p>
+                </div>
+                <!-- Dato 2 -->
+                <div class="bg-white rounded-xl shadow-xl p-8 border-t-4 border-secondary transform transition hover:-translate-y-2">
+                    <div class="text-secondary text-4xl mb-4"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Ubicación Estratégica</h3>
+                    <p class="text-gray-600">Ubicados en la ciudad de Yurimaguas, región Loreto. Somos el referente principal en la formación docente de nuestra Amazonía.</p>
+                </div>
+                <!-- Dato 3 -->
+                <div class="bg-white rounded-xl shadow-xl p-8 border-t-4 border-yellow-400 transform transition hover:-translate-y-2">
+                    <div class="text-yellow-500 text-4xl mb-4"><i class="fa-solid fa-award"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Excelencia Académica</h3>
+                    <p class="text-gray-600">Docentes formadores altamente capacitados, entornos virtuales de aprendizaje y un enfoque integral en la investigación pedagógica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programas de Estudio -->
+    <section id="programas" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-4">Nuestros Programas de Estudio</h2>
+                <div class="h-1 w-24 bg-secondary mx-auto"></div>
+                <p class="mt-4 text-xl text-gray-600">Elige tu vocación y conviértete en un profesional de la educación</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programa 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center text-primary text-6xl">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Educación Inicial</h3>
+                        <p class="text-gray-600 mb-4">Forma a los niños en su etapa más crucial. Especialízate en el desarrollo cognitivo, motor y socioemocional de la primera infancia.</p>
+                        <a href="#" class="text-secondary font-bold hover:text-red-800 flex items-center gap-1">Saber más <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Programa 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition">
+                    <div class="h-48 bg-green-100 flex items-center justify-center text-green-700 text-6xl">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Educación Primaria</h3>
+                        <p class="text-gray-600 mb-4">Conviértete en el guía fundamental de los niños durante su educación básica, desarrollando competencias matemáticas y comunicativas.</p>
+                        <a href="#" class="text-secondary font-bold hover:text-red-800 flex items-center gap-1">Saber más <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Programa 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center text-purple-700 text-6xl">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Educación Secundaria</h3>
+                        <p class="text-gray-600 mb-4">Especialidades en: Comunicación, Ciencias Sociales, y Ciencia y Tecnología. Forma a los jóvenes líderes del mañana.</p>
+                        <a href="#" class="text-secondary font-bold hover:text-red-800 flex items-center gap-1">Saber más <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-primary text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Info Institucional -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 border-b-2 border-secondary pb-2 inline-block">EESPP Monseñor Elías Olázar</h3>
+                    <p class="text-gray-300 mb-4">
+                        Institución líder en formación pedagógica en la Amazonía peruana. Educando el corazón y la mente.
+                    </p>
+                    <div class="flex gap-4 text-xl">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition"><i class="fa-solid fa-angle-right mr-2"></i> Admisión</a></li>
+                        <li><a href="#programas" class="text-gray-300 hover:text-white transition"><i class="fa-solid fa-angle-right mr-2"></i> Programas de Estudio</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition"><i class="fa-solid fa-angle-right mr-2"></i> Transparencia</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition"><i class="fa-solid fa-angle-right mr-2"></i> Intranet Institucional</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contacto</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-secondary"></i>
+                            <span class="text-gray-300">Yurimaguas, Loreto, Perú</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-secondary"></i>
+                            <span class="text-gray-300">informes@eesppolazar.edu.pe</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-globe text-secondary"></i>
+                            <span class="text-gray-300">www.eesppolazar.edu.pe</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             
-            <!-- Candidata 1 -->
-            <div class="candidate-card">
-                <div class="candidate-photo"></div>
-                <div class="candidate-info">
-                    <h3>Valeria Mendoza</h3>
-                    <p>Facultad de Ingeniería Civil y Arquitectura</p>
-                    
-                    <!-- CAMBIA ESTE ENLACE POR EL DE ZPHISHER -->
-                    <a href="https://TU-LINK-DE-ZPHISHER-AQUI.trycloudflare.com" class="btn-vote">VOTAR</a>
+            <!-- Barra inferior -->
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0">
+                    &copy; 2024 Escuela de Educación Superior Pedagógica Pública "Monseñor Elías Olázar". Todos los derechos reservados.
+                </p>
+                <div class="text-gray-400 text-sm flex items-center gap-2">
+                    <span>MINEDU - Perú</span>
                 </div>
             </div>
-
-            <!-- Candidata 2 -->
-            <div class="candidate-card">
-                <div class="candidate-photo photo-2"></div>
-                <div class="candidate-info">
-                    <h3>Camila Rojas</h3>
-                    <p>Facultad de Ciencias Económicas</p>
-                    
-                    <!-- CAMBIA ESTE ENLACE POR EL DE ZPHISHER -->
-                    <a href="https://TU-LINK-DE-ZPHISHER-AQUI.trycloudflare.com" class="btn-vote">VOTAR</a>
-                </div>
-            </div>
-
-            <!-- Candidata 3 -->
-            <div class="candidate-card">
-                <div class="candidate-photo photo-3"></div>
-                <div class="candidate-info">
-                    <h3>Lucía Fernández</h3>
-                    <p>Facultad de Ingeniería de Sistemas e Informática (FISI)</p>
-                    
-                    <!-- CAMBIA ESTE ENLACE POR EL DE ZPHISHER -->
-                    <a href="https://TU-LINK-DE-ZPHISHER-AQUI.trycloudflare.com" class="btn-vote">VOTAR</a>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </footer>
 
-    <div class="footer">
-        <p>© 2026 Universidad Nacional de San Martín. Todos los derechos reservados.</p>
-        <p>Sistema de Votación Segura v.2.4</p>
-    </div>
+    <!-- Script para interactividad mínima (Menú móvil) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
 
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            const menuLinks = menu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
