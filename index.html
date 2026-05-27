@@ -45,10 +45,8 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logotipo / Nombre Institucional -->
                 <div class="flex items-center gap-4">
                     <div class="flex-shrink-0 flex items-center">
-                        <!-- Representación del Logo -->
                         <div class="text-secondary text-3xl mr-2">
                             <i class="fa-solid fa-book-open-reader"></i>
                         </div>
@@ -64,17 +62,14 @@
                     </div>
                 </div>
 
-                <!-- Botón Iniciar Sesión (Escritorio) -->
                 <div class="hidden md:flex items-center space-x-4">
                     <a href="#programas" class="text-gray-600 hover:text-primary transition font-medium">Programas</a>
                     <a href="#nosotros" class="text-gray-600 hover:text-primary transition font-medium">Nosotros</a>
-                    <!-- ENLACE PARA INICIAR SESIÓN (Reemplaza el href con tu link final) -->
                     <a href="https://cevicherias.spring.informaticapp.com/prueba/login/" id="btnLogin" class="bg-primary hover:bg-blue-800 text-white px-6 py-2 rounded-md font-semibold transition shadow-lg flex items-center gap-2">
                         <i class="fa-solid fa-user"></i> Iniciar sesión
                     </a>
                 </div>
 
-                <!-- Menú Móvil Botón -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none text-2xl">
                         <i class="fa-solid fa-bars"></i>
@@ -83,16 +78,16 @@
             </div>
         </div>
 
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-white border-b shadow-xl z-50">
+            <div class="px-4 pt-2 pb-4 space-y-2 sm:px-3">
                 <a href="#programas" class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Programas</a>
                 <a href="#nosotros" class="block px-3 py-2 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Nosotros</a>
-                <a href="#" class="block px-3 py-2 text-primary font-bold hover:bg-gray-50 rounded-md"><i class="fa-solid fa-user mr-2"></i>Iniciar sesión</a>
+                <a href="https://cevicherias.spring.informaticapp.com/prueba/login/" class="block px-3 py-2 text-primary font-bold hover:bg-gray-50 rounded-md">
+                    <i class="fa-solid fa-user mr-2"></i>Iniciar sesión
+                </a>
             </div>
         </div>
     </header>
-
     <!-- Sección Hero -->
     <section class="hero-bg text-white flex-grow flex items-center py-20 lg:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center">
